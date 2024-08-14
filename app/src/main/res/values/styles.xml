@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Custom Bottom Sheet Theme -->
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomShapeAppearanceBottomSheet</item>
+    </style>
+
+    <!-- Custom Shape for Bottom Sheet -->
+    <style name="CustomShapeAppearanceBottomSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearance</item>
+    </style>
+
+    <!-- Define the Shape Appearance -->
+    <style name="CustomShapeAppearance" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item> <!-- Set the desired corner radius -->
+    </style>
+
+</resources>

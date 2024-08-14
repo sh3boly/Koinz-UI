@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/gift_food_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_fries"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gift_food_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/Circular" />
+
+    <TextView
+        android:id="@+id/gift_food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Fries"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@id/gift_food_icon"
+        app:layout_constraintTop_toTopOf="@id/gift_food_icon" />
+
+    <TextView
+        android:id="@+id/gift_unlock_condition"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+
+
+        android:text="To unlock this you j njnk kjnkjnkj jkjnknkjn kjnjknjk kjnjknjk"
+        android:textColor="@color/conidtion_color"
+        android:textSize="11sp"
+        android:lines="2"
+        app:layout_constraintStart_toEndOf="@id/gift_food_icon"
+        app:layout_constraintTop_toBottomOf="@id/gift_food_title"
+        app:layout_constraintEnd_toStartOf="@id/add_button"
+        app:layout_constraintBottom_toTopOf="@id/gift_food_points"
+        />
+
+    <TextView
+        android:id="@+id/gift_food_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="140 pts"
+
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/gift_food_icon"
+        app:layout_constraintStart_toEndOf="@id/gift_food_icon"
+        app:layout_constraintTop_toBottomOf="@id/gift_unlock_condition" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_button"
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_shape"
+        android:text="Add"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gift_food_icon"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gift_food_points"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
