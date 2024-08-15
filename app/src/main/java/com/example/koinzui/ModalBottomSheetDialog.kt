@@ -57,12 +57,30 @@ class ModalBottomSheetDialog : BottomSheetDialogFragment() {
 
     private fun getGiftList(): List<Gift> {
         val gifts = mutableListOf<Gift>()
-        gifts.add(Gift(unlockedImage = R.drawable.ic_fries, title = "Fries", points = 140))
+        gifts.add(Gift(unlockedImage = R.drawable.ic_voucher, title = "30% Discount Voucher", points = 45))
+        gifts.add(
+            Gift(
+                unlockedImage = R.drawable.ic_regular_burger,
+                title = "Regular Burger",
+                points = 90,
+                condition = "Spend 30 L.E to unlock this gift for next visit",
+                isLocked = false
+            )
+        )
         gifts.add(
             Gift(
                 lockedImage = R.drawable.ic_locked_burger,
                 title = "Cheese Burger",
                 points = 90,
+                condition = "Spend 30 L.E to unlock this gift for next visit",
+                isLocked = true
+            )
+        )
+        gifts.add(
+            Gift(
+                lockedImage = R.drawable.ic_classic_burger,
+                title = "Classic Burger",
+                points = 120,
                 condition = "Spend 30 L.E to unlock this gift for next visit",
                 isLocked = true
             )
