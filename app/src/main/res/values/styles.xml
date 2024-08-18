@@ -15,5 +15,7 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item> <!-- Set the desired corner radius -->
     </style>
-
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">16dp</item>
+    </style>
 </resources>

@@ -31,6 +31,7 @@
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@id/gift_food_icon"
         app:layout_constraintTop_toTopOf="@id/gift_food_icon"
+        app:layout_constraintBottom_toTopOf="@id/gift_unlock_condition"
         app:lineHeight="23.15sp" />
 
     <TextView
@@ -47,7 +48,8 @@
         android:textSize="11sp"
         app:layout_constraintEnd_toStartOf="@id/add_button"
         app:layout_constraintStart_toEndOf="@id/gift_food_icon"
-        app:layout_constraintTop_toBottomOf="@id/gift_food_title"
+        app:layout_constraintTop_toTopOf="@id/gift_food_icon"
+        app:layout_constraintBottom_toBottomOf="@id/gift_food_icon"
         app:lineHeight="14.98sp" />
 
     <TextView
@@ -67,8 +69,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_button"
-        android:layout_width="30dp"
-        android:layout_height="20dp"
+        android:layout_width="60dp"
+        android:layout_height="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/btn_shape"
         android:fontFamily="@font/noto_sans"
@@ -77,9 +79,9 @@
         android:textColor="@color/black"
         android:textFontWeight="400"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/gift_food_icon"
+        app:layout_constraintBottom_toBottomOf="@id/gift_food_icon"
         tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

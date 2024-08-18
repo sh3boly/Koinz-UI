@@ -9,5 +9,4 @@ data class Gift(
     val title: String,
     val points: Int,
     val isLocked: Boolean = false,
-
 )

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="343dp"
+    android:layout_height="368dp"
+    android:layout_marginVertical="222dp"
+    android:layout_marginHorizontal="16dp"
+    app:cardCornerRadius="16dp"
+    android:elevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="32dp"
+        >
+
+        <ImageButton
+            android:background="@null"
+            android:id="@+id/exit_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="Exit button"
+            android:src="@drawable/ic_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/gift_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingTop="12dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/gift_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/Circular"
+                    tools:srcCompat="@drawable/ic_voucher" />
+
+                <TextView
+                    android:id="@+id/gift_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8.5dp"
+                    android:fontFamily="@font/poppins"
+
+                    android:lineHeight="22.5sp"
+                    android:text="30% Discount"
+                    android:textColor="@color/new_black"
+                    android:textFontWeight="400"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/gift_icon"
+                    app:layout_constraintStart_toEndOf="@id/gift_icon"
+                    app:layout_constraintTop_toTopOf="@id/gift_icon" />
+
+                <TextView
+                    android:id="@+id/gift_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:lineHeight="22.5sp"
+                    android:text="78 points"
+                    android:textColor="@color/conidtion_color"
+                    android:textFontWeight="400"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/gift_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/gift_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/gift_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:lineHeight="18sp"
+            android:text="Minimum order 100 EGP, Max discount 30 EGP"
+            android:textAlignment="center"
+            android:textColor="@color/conidtion_color"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gift_card" />
+
+        <TextView
+            android:id="@+id/add_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins"
+            android:lineHeight="25.5sp"
+            android:paddingHorizontal="21dp"
+            android:text="Add this order to your online order basket now to apply your discount"
+            android:textAlignment="center"
+            android:textColor="@color/new_black"
+            android:textFontWeight="400"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gift_condition" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_button_shape"
+            android:fontFamily="@font/noto_sans"
+            android:lineHeight="23.15sp"
+            android:text="Add to Basket"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@id/add_gift" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

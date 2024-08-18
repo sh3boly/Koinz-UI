@@ -1,16 +1,23 @@
 package com.example.koinzui
 
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.PopupWindow
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.koinzui.model.Gift
 
-class GiftAdapter(private val gifts: List<Gift>) :
+class GiftAdapter(private val gifts: List<Gift>, private val activity: FragmentActivity) :
     RecyclerView.Adapter<GiftAdapter.GiftViewHolder>() {
 
 
@@ -34,22 +41,47 @@ class GiftAdapter(private val gifts: List<Gift>) :
         holder: GiftViewHolder,
         position: Int,
     ) {
-        if (gifts[position].isLocked){
-            holder.image.setImageResource(gifts[position].lockedImage)
+        val gift = gifts[position]
+        if (gift.isLocked) {
+            holder.image.setImageResource(gift.lockedImage)
             holder.addButton.visibility = View.GONE
-        }
-         else
-            holder.image.setImageResource(gifts[position].unlockedImage)
-        if(gifts[position].condition.isBlank()){
+        } else
+            holder.image.setImageResource(gift.unlockedImage)
+        if (gift.condition.isBlank()) {
             holder.unlockRequirement.visibility = View.GONE
         }
-        holder.unlockRequirement.text = gifts[position].condition
-        holder.title.text = gifts[position].title
-        holder.points.text = "${gifts[position].points} pts"
+        holder.unlockRequirement.text = gift.condition
+        holder.title.text = gift.title
+        holder.points.text = "${gift.points} pts"
 
         holder.addButton.setOnClickListener {
-            // Define button click behavior here
+            holder.addButton.setOnClickListener {
+                val dialog = AddDialog(gift)
+                dialog.show(activity.supportFragmentManager, "AddDialog")
+            }
         }
+    }
+
+    private fun showPopupWindow(view: View, item: Gift) {
+        val inflater = LayoutInflater.from(view.context)
+        val popupView = inflater.inflate(R.layout.popup_window, null)
+
+        val popupWindow = PopupWindow(
+            popupView,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+
+        val title = popupView.findViewById<TextView>(R.id.gift_title)
+        title.text = item.title
+
+        val cancelButton = popupView.findViewById<ImageButton>(R.id.exit_btn)
+        cancelButton.setOnClickListener {
+            popupWindow.dismiss()
+        }
+
+        popupWindow.showAtLocation(view.rootView, Gravity.CENTER, 0, 0)
     }
 
 }

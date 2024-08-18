@@ -2,9 +2,13 @@ package com.example.koinzui
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.koinzui.databinding.ItemBottomsheetBinding
@@ -27,10 +31,8 @@ class ModalBottomSheetDialog : BottomSheetDialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        // Create a BottomSheetDialog with the custom theme
         val dialog = BottomSheetDialog(requireContext(), R.style.CustomBottomSheetDialogTheme)
 
-        // Set up the BottomSheetDialog as usual
         dialog.setOnShowListener { it ->
             val d = it as BottomSheetDialog
             val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
@@ -41,7 +43,7 @@ class ModalBottomSheetDialog : BottomSheetDialogFragment() {
             }
         }
 
-        return dialog // Return the customized dialog
+        return dialog
     }
 
     companion object {
@@ -51,8 +53,9 @@ class ModalBottomSheetDialog : BottomSheetDialogFragment() {
     private fun setupRecyclerView() {
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter =
-            GiftAdapter(getGiftList()) // Replace getGiftList() with your method to get the list of gifts
+        activity?.let { fragmentActivity ->
+            recyclerView.adapter = GiftAdapter(getGiftList(), fragmentActivity)
+        }
     }
 
     private fun getGiftList(): List<Gift> {
@@ -87,5 +90,7 @@ class ModalBottomSheetDialog : BottomSheetDialogFragment() {
         )
         return gifts
     }
+
+
 
 }
